@@ -1,0 +1,87 @@
+{% extends 'Base.html' %} {% block content %}
+<div class="container">
+  <div class="row d-flex justify-content-center">
+    <div class="col-md-10 mt-5 border-2 shadow-lg">
+      <div class="row z-depth-3">
+        <div class="col-sm-4 bg-info rounded-left">
+          <div class="card-block text-center text-white">
+            <img
+              src="{{staff.profile_img.url}}"
+              class="fas fa-7x mt-4 rounded"
+              style="width: 70%"
+            />
+            <h2 class="font-white-bold mt-4">{{staff.name}}</h2>
+            <p>{{staff.email}}</p>
+
+            {% if request.user.staffs.id == staff.id %}
+            <a href="{% url 'staff-inbox' %}"
+              ><button class="btn btn-secondary rounded mx-2 mb-3 py-2 px-3">
+                Inbox
+              </button></a
+            >
+            <a href="{% url 'update-staff' staff.id %}">
+              <button class="btn btn-secondary rounded mx-2 mb-3 py-2 px-3">
+                Edit
+              </button>
+            </a>
+            {% else %}
+            <a href="{% url 'staff-createmsg' staff.id %}"
+              ><button class="btn btn-secondary rounded mx-2 mb-3 py-2 px-3">
+                Massage
+              </button></a
+            >
+            {% endif %}
+          </div>
+        </div>
+        <div class="col-sm-8 bg-white rounded-right ps-2">
+          <h3 class="mt-3 text-center">Information</h3>
+          <hr class="badge-primary mt-0 center" />
+          <div class="row ps-2">
+            <div class="col-sm-6 pt-2">
+              <p class="font-weigth-bold">Name:</p>
+              <h6 class="text-muted ps-2">
+                <strong class="ms-2">{{staff.name}}</strong>
+              </h6>
+            </div>
+            <div class="col-sm-6 pt-2">
+              <p class="font-weigth-bold">Education:</p>
+              <h6 class="text-muted ps-2">{{staff.education}}</h6>
+            </div>
+            <hr class="bg-primary mt-2" />
+
+            <div class="col-sm-6 pt-2">
+              <p class="font-weigth-bold">Email:</p>
+              <h6 class="text-muted ps-2">{{staff.email}}</h6>
+            </div>
+            <div class="col-sm-6 pt-2">
+              <p class="font-weigth-bold">Gender:</p>
+              <h6 class="text-muted ps-2">{{staff.gender}}</h6>
+            </div>
+            <hr class="bg-primary" />
+            <div class="col-sm-6 pt-2">
+              <p class="font-weigth-bold">Course:</p>
+              {% for subject in subjects %}
+              <h6 class="text-muted ps-2">{{subject.name}}</h6>
+              {% endfor %}
+            </div>
+            <div class="col-sm-6 pt-2">
+              <p class="font-weigth-bold">Address:</p>
+              <h6 class="text-muted ps-2">{{staff.address}}</h6>
+            </div>
+            <hr class="bg-primary" />
+            <div class="col-sm-6">
+              <p class="font-weigth-bold text-muted">Created:</p>
+              <h6 class="text-muted pb-2 ps-2">{{staff.created}}</h6>
+            </div>
+            <div class="col-sm-6">
+              <p class="font-weigth-bold text-muted">Updated:</p>
+              <h6 class="text-muted pb-2 ps-2">{{staff.updated}}</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

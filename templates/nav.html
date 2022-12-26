@@ -1,0 +1,43 @@
+{% load static %}
+
+<header class="header sticky-lg-top">
+  <h1 class="heading">COLLEGE MANAGEMENT SYSTEM</h1>
+  <nav class="nav">
+    <ul>
+      <li><a href="{% url 'Home' %}">Home</a></li>
+      <li><a href="{% url 'events' %}">Events</a></li>
+      <li>
+        <a href="{% url 'staff-List' %}"
+          >Staffs<i class="fas fa-caret-down"></i
+        ></a>
+        <div class="dropdown_menu">
+          <ul>
+            <li><a href="{% url 'staff-List' %}">Staffs</a></li>
+            <li>
+              <a href="{% url 'staff-account' %}">Account</a>
+            </li>
+            <li><a href="{% url 'staff-inbox' %}">Inbox</a></li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <a href="{% url 'student-List' %}"
+          >Students<i class="fas fa-caret-down"></i
+        ></a>
+        <div class="dropdown_menu">
+          <ul>
+            <li><a href="{% url 'student-List' %}">Students</a></li>
+            <li><a href="{% url 'student-inbox' %}">Inbox</a></li>
+            <li><a href="{% url 'result' %}">Result</a></li>
+          </ul>
+        </div>
+      </li>
+      <li><a href="{% url 'contactus' %}">Contact Us</a></li>
+      {% if request.user.is_authenticated %}
+      <li><a href="{% url 'logout' %}">LogOut</a></li>
+      {% else %}
+      <li><a href="{% url 'login' %}">Login/Sign Up</a></li>
+      {% endif %}
+    </ul>
+  </nav>
+</header>

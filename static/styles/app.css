@@ -1,0 +1,160 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  color: black;
+}
+
+/* NavBar */
+.header {
+  background-color: midnightblue;
+  color: #fff;
+  height: 140px;
+  width: 100%;
+  padding: 20px 20px;
+  padding-bottom: 5px;
+}
+
+.heading {
+  color: #fff;
+  text-align: center;
+}
+
+.heading:hover {
+  color: #7ddceb; /* #ff69b4 */
+  font-weight: bold;
+}
+
+nav {
+  font-size: 22px;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.nav ul {
+  list-style: none;
+  display: flex;
+}
+
+.nav ul li {
+  padding: 10px 10px;
+  position: relative;
+  padding-bottom: 0;
+}
+
+.nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  margin-right: 30px;
+  margin-left: 5px;
+  display: inline-block;
+  transition: all 0.3s;
+}
+
+.nav ul li a:hover {
+  color: #e68e5e;
+  font-weight: bold;
+  text-decoration: underline solid #dcae96;
+}
+
+.dropdown_menu {
+  display: none;
+}
+
+.nav ul li:hover .dropdown_menu {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  background-color: midnightblue;
+}
+
+.nav ul li:hover .dropdown_menu ul {
+  display: block;
+  margin: 5px;
+}
+
+.nav ul li:hover .dropdown_menu ul li {
+  width: 120px;
+  padding: 5px 0;
+}
+
+/* Home-page Background image */
+.hero {
+  height: calc(100vh - 140px);
+  background-image: url(../images/BgImage.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* Students List */
+.std-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.std-title h1 {
+  margin-left: 20px;
+  padding-top: 10px;
+}
+
+.std-title h2 {
+  margin-right: 30px;
+  padding-top: 10px;
+}
+
+.std-title h1:hover,
+.std-title h2:hover {
+  font-size: 42px;
+  color: blue;
+}
+
+.table-light {
+  vertical-align: middle;
+  text-align: center;
+}
+
+.std-img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+}
+
+/* deleteform */
+
+.deleteform {
+  width: 30rem;
+  margin: 25px auto;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.deleteform form {
+  margin: 5px 10px;
+  padding: 10px 10px;
+}
+
+/* Student Result */
+.result-form {
+  width: 70%;
+  margin: 20px auto;
+  padding-bottom: 10px;
+}
+
+.result-form .search-text {
+  display: inline-block;
+  width: 400px;
+  height: 40px;
+  margin-left: 80px;
+  border-radius: 5px;
+  border: 1xp solid #fff;
+}

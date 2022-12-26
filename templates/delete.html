@@ -1,0 +1,13 @@
+{% extends 'Base.html' %} {% block content %}
+<div class="deleteform">
+  <form method="POST">
+    {% csrf_token %}
+    <p>Are you sure you want to delete {{student}}?</p>
+    <a href="{% url 'student-List' %}">
+      <button class="btn btn-secondary" type="button">Go Back</button>
+    </a>
+    <input class="btn btn-danger" type="submit" value="Confirm" />
+  </form>
+</div>
+
+{% endblock content %}

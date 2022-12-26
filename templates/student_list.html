@@ -1,0 +1,62 @@
+{% extends 'Base.html' %} {% block content %}
+<div class="container bg-light mt-3">
+  <div class="std-title">
+    <h1>Students</h1>
+    <div class="result-form pt-3">
+      <form method="GET" action="">
+        <input
+          type="text"
+          class="search-text"
+          name="search_query"
+          value="{{search_query}}"
+          placeholder="search by name, gender, course (or) rollno."
+        />
+        <input type="submit" value="Search" class="btn btn-primary" />
+      </form>
+      </div>
+      <h2>Total:{{ total}}</h2>
+    </div>
+
+    <a href="{% url 'create-student' %}" class="d-flex justify-content-end me-4"><button class="btn btn-primary">Add Student</button></a>
+    <hr />
+    <table class="table table-light table-hover">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Roll No.</th>
+          <th scope="col">Name</th>
+          <th scope="col">Gender</th>
+          <th scope="col">Course</th>
+          <th scope="col">Email</th>
+          <th scope="col">Address</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for std in students %}
+        <tr>
+          <th scope="row">
+            <img src="{{std.profile_img.url}}" alt="" class="std-img" />
+          </th>
+          <td>{{std.roll_no}}</td>
+          <td>{{std.name}}</td>
+          <td>{{std.gender}}</td>
+          <td>{{std.course}}</td>
+          <td>{{std.email}}</td>
+          <td>{{std.address}}</td>
+          <td>
+            <a href="{% url 'student' std.id %}"
+              ><i class="fa fa-eye me-2" aria-hidden="true"></i
+            ></a>
+            <a href="{% url 'delete-student' std.id %}"
+              ><i class="fa fa-trash" aria-hidden="true"></i
+            ></a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  {% endblock content %}
+</div>

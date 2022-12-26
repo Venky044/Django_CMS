@@ -1,0 +1,75 @@
+{% extends 'Base.html' %} {% block content %}
+<div class="container">
+  <div class="row d-flex justify-content-center">
+    <div class="col-md-10 mt-5 border-2 shadow-lg">
+      <div class="row z-depth-3">
+        <div class="col-sm-4 bg-info rounded-left">
+          <div class="card-block text-center text-white">
+            <!-- <i class="fas fa-user-tie fa-7x mt-5"></i> -->
+            <img
+              src="{{student.profile_img.url}}"
+              class="fas fa-7x mt-4 rounded"
+              style="width: 60%"
+            />
+            <h2 class="font-white-bold mt-4">{{student.name}}</h2>
+            <p>{{student.email}}</p>
+            <a href="{% url 'student-message' student.id %}"
+              ><button class="btn btn-secondary rounded mx-2 mb-3 py-2 px-3">
+                Massage
+              </button></a
+            >
+            <a href="{% url 'update-student' student.id %}">
+              <button class="btn btn-secondary rounded mx-2 mb-3 py-2 px-3">
+                Edit
+              </button>
+            </a>
+          </div>
+        </div>
+        <div class="col-sm-8 bg-white rounded-right ps-2">
+          <h3 class="mt-3 text-center">Information</h3>
+          <hr class="badge-primary mt-0 center" />
+          <div class="row ps-2">
+            <div class="col-sm-6 pt-2">
+              <p class="font-weigth-bold">Roll.No:</p>
+              <h6 class="text-muted ps-2">{{student.roll_no}}</h6>
+            </div>
+            <div class="col-sm-6 pt-2">
+              <p class="font-weigth-bold">Name:</p>
+              <h6 class="text-muted ps-2">{{student.name}}</h6>
+            </div>
+            <hr class="bg-primary mt-2" />
+
+            <div class="col-sm-6 pt-2">
+              <p class="font-weigth-bold">Email:</p>
+              <h6 class="text-muted ps-2">{{student.email}}</h6>
+            </div>
+            <div class="col-sm-6 pt-2">
+              <p class="font-weigth-bold">Gender:</p>
+              <h6 class="text-muted ps-2">{{student.gender}}</h6>
+            </div>
+            <hr class="bg-primary" />
+            <div class="col-sm-6 pt-2">
+              <p class="font-weigth-bold">Course:</p>
+              <h6 class="text-muted ps-2">{{student.course}}</h6>
+            </div>
+            <div class="col-sm-6 pt-2">
+              <p class="font-weigth-bold">Address:</p>
+              <h6 class="text-muted ps-2">{{student.address}}</h6>
+            </div>
+            <hr class="bg-primary" />
+            <div class="col-sm-6">
+              <p class="font-weigth-bold text-muted">Created:</p>
+              <h6 class="text-muted pb-2 ps-2">{{student.created}}</h6>
+            </div>
+            <div class="col-sm-6">
+              <p class="font-weigth-bold text-muted">Updated:</p>
+              <h6 class="text-muted pb-2 ps-2">{{student.updated}}</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

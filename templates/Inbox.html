@@ -1,0 +1,67 @@
+{% extends 'Base.html' %} {% block content %}
+<!--  -->
+
+<div class="container shadow mt-3" style="width: 70%">
+  <div class="result-form pt-5">
+    <h3 class="text-center">Students Inbox</h3>
+    <form method="GET" action="">
+      <input
+        type="text"
+        class="search-text"
+        name="search_query"
+        value="{{search_query}}"
+        placeholder="search by rollno"
+      />
+      <input type="submit" value="Search" class="btn btn-primary" />
+    </form>
+  </div>
+
+  <div class="mt-4 pb-4">
+    {% if messageobj is not None %}
+
+    <table
+      class="table table-light table-hover"
+      style="width: 95%; margin: auto"
+    >
+      <h2>Messages({{total}})</h2>
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Subject</th>
+          <th scope="col">Date</th>
+          <th scope="col">view</th>
+          <th scope="col">delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for message in messageobj %}
+        <tr>
+          {% if message.is_read == False %}
+          <th scope="row">{{message.name}}</th>
+          {% else %}
+          <th scope="row">{{message.name}} (viewed)</th>
+          {% endif %}
+          <td>{{message.subject}}</td>
+          <td>{{message.created}}</td>
+          <td>
+            <a href="{% url 'student-viewmsg' message.id %}"
+              ><i class="fa fa-eye me-2" aria-hidden="true"></i
+            ></a>
+          </td>
+          <td>
+            <a href="{% url 'student-deletemsg' message.id %}"
+              ><i class="fa fa-trash" aria-hidden="true"></i
+            ></a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <!--  -->
+    {% else %}
+    <p></p>
+    {% endif %}
+  </div>
+</div>
+
+{% endblock content %}

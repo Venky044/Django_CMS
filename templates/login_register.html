@@ -1,0 +1,48 @@
+{% extends 'Base.html' %} {% block content %}
+<!--  -->
+{% if page == 'login' %}
+<div class="container my-5 py-3 shadow" style="width: 40%">
+  <h2 class="text-center p-2 m-2">Login</h2>
+  <form method="POST" action="" class="p=3">
+    {% csrf_token %}
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Username:</label>
+      <input
+        type="text"
+        name="username"
+        class="form-control"
+        id="exampleInputEmail1"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Password</label>
+      <input
+        type="password"
+        name="password"
+        class="form-control"
+        id="exampleInputPassword1"
+      />
+    </div>
+    <button type="submit" class="btn btn-primary mb-2">Login</button>
+    <h5>
+      If you don't have an account, please
+      <a href="{% url 'register' %}">Register</a>
+    </h5>
+  </form>
+</div>
+{% else %}
+<div class="container my-3 shadow pb-3" style="width: 50%">
+  <h2 class="text-center py-2 m-2">Register Account</h2>
+  <form method="POST" action="{% url 'register' %}" class="p=3">
+    {% csrf_token %} {{form.as_p}}
+    <button type="submit" class="btn btn-primary mb-2">Register</button>
+    <h5>
+      If you have an account, please
+      <a href="{% url 'login' %}">LogIn</a>
+    </h5>
+  </form>
+</div>
+
+{% endif %}
+<!--  -->
+{% endblock content %}

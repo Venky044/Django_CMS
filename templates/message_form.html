@@ -1,0 +1,10 @@
+{% extends 'Base.html' %} {% block content %}
+<div class="container my-3 p-2 shadow bg-light" style="width: 50%">
+  <form method="POST" action="">
+    {% csrf_token %}
+    <!--  -->
+    {{form.as_p}}
+    <input class="btn btn-primary px-10 mb-2" type="submit" value="Submit" />
+  </form>
+</div>
+{% endblock content %}

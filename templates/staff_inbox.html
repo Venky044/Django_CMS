@@ -1,0 +1,44 @@
+{% extends 'Base.html' %} {% block content %}
+<!--  -->
+
+<div class="container shadow mt-3" style="width: 80%">
+  <div class="mt-4 pb-4">
+    <table
+      class="table table-light table-hover"
+      style="width: 95%; margin: auto"
+    >
+      <h2>New Messages({{unreadCount}})</h2>
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Subject</th>
+          <th scope="col">Date</th>
+          <th scope="col">view</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for message in messageobj %}
+        <tr>
+          {% if message.is_read == False %}
+          <th scope="row">{{message.name}}</th>
+          {% else %}
+          <th scope="row">{{message.name}} (viewed)</th>
+          {% endif %}
+          <td>{{message.subject}}</td>
+          <td>{{message.created}}</td>
+          <td>
+            <a href="{% url 'staff-message' message.id %}"
+              ><i class="fa fa-eye me-2" aria-hidden="true"></i
+            ></a>
+            <a href="{% url 'staff-deletemsg' message.id %}"
+              ><i class="fa fa-trash" aria-hidden="true"></i
+            ></a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+{% endblock content %}
