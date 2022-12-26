@@ -1,7 +1,7 @@
 # Django_CMS
 Django College Management System
 
-####   This project is mainly focused on Student, Staffs, Events and Massage.
+####   This project is mainly focused on Student, Staffs, Events and Message.
 
 ### Students:
     * Students can send Messages to Staffs.
